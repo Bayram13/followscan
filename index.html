@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagram Follower Checker</title>
+</head>
+<body>
+  <h1>Instagram Follower Checker</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <label>Followers JSON:</label>
+    <input type="file" name="followers" required><br><br>
+    <label>Following JSON:</label>
+    <input type="file" name="following" required><br><br>
+    <input type="submit" value="Yoxla">
+  </form>
+
+  {% if not_following_back %}
+    <h2>Səni izləməyənlər:</h2>
+    <ul>
+      {% for user in not_following_back %}
+        <li>{{ user }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if not_followed_back_by_you %}
+    <h2>Sənin izləmədiklərin:</h2>
+    <ul>
+      {% for user in not_followed_back_by_you %}
+        <li>{{ user }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>
